@@ -31,6 +31,18 @@ typedef struct	s_player
 	double	plane_y;
 } t_player;
 
+
+typedef struct s_img
+{
+	void	*ptr;
+	char	*addr;
+	int		bpp;
+	int		size_line;
+	int		endian;
+	int		width;
+	int		height;
+} t_img;
+
 void	move_forward(t_player *player, t_scene *scene);
 void	move_backward(t_player *player, t_scene *scene);
 void	move_left(t_player *player, t_scene *scene);
@@ -39,5 +51,7 @@ void	turn_left(t_player *player);
 void	turn_right(t_player *player);
 void	rotate_vec(double *x, double *y, double a);
 void	init_player(t_player *player, t_scene *scene);
+void	put_pixel(t_img *img, int x, int y, int color);
+void	render_frame(t_img *img, t_scene *scene, t_player *player);
 
 #endif
